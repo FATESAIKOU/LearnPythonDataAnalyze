@@ -1,0 +1,171 @@
+/* 
+ * カスタムスタイル - Python データ分析入門
+ * 主な目的: ASCII Art 図表の等幅フォント表示を保証
+ */
+
+/* ========================================
+   等幅フォント設定（ASCII Art 対応）
+   ======================================== */
+
+/* 通常の段落内でも等幅フォントを使用するブロック */
+/* ASCII Art を含む可能性のあるコードブロック外のテキスト */
+.md-content pre,
+.md-content code {
+  font-family: 
+    'Source Code Pro',
+    'Noto Sans Mono CJK JP',  /* 日本語等幅 */
+    'MS Gothic',               /* Windows 日本語等幅 */
+    'Osaka-Mono',              /* macOS 日本語等幅 */
+    monospace !important;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+/* コードブロック内の等幅表示を確実に */
+.md-content pre code {
+  font-family: 
+    'Source Code Pro',
+    'Noto Sans Mono CJK JP',
+    'MS Gothic',
+    'Osaka-Mono',
+    monospace !important;
+  white-space: pre;           /* 空白を保持 */
+  word-break: normal;
+  overflow-x: auto;
+}
+
+/* ========================================
+   ASCII Art ブロック専用スタイル
+   ======================================== */
+
+/* 罫線文字を含むテキストブロック用 */
+.md-content pre:has(code:not([class*="language-"])) {
+  background-color: var(--md-code-bg-color);
+  border-radius: 0.2rem;
+  padding: 1em;
+}
+
+/* ========================================
+   テーブル表示の改善
+   ======================================== */
+
+.md-typeset table:not([class]) {
+  font-size: 0.9em;
+  border-collapse: collapse;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  padding: 0.6em 1em;
+  border: 1px solid var(--md-typeset-table-color);
+}
+
+/* テーブルヘッダー */
+.md-typeset table:not([class]) th {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 600;
+}
+
+/* ========================================
+   日本語テキストの読みやすさ向上
+   ======================================== */
+
+.md-typeset {
+  font-size: 1rem;
+  line-height: 1.8;           /* 日本語は行間を広めに */
+}
+
+.md-typeset h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+.md-typeset h2 {
+  font-size: 1.6em;
+  font-weight: 600;
+  border-bottom: 2px solid var(--md-primary-fg-color);
+  padding-bottom: 0.3em;
+  margin-top: 2em;
+}
+
+.md-typeset h3 {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 1.5em;
+}
+
+/* ========================================
+   絵文字・アイコンの表示調整
+   ======================================== */
+
+.md-typeset .emojione,
+.md-typeset .twemoji,
+.md-typeset .gemoji {
+  vertical-align: -0.1em;
+}
+
+/* ========================================
+   コードブロックの装飾
+   ======================================== */
+
+/* Python コードブロック */
+.md-typeset pre > code.language-python {
+  border-left: 3px solid #3776ab;  /* Python blue */
+}
+
+/* 実行結果ブロック */
+.md-typeset pre > code:not([class*="language-"]) {
+  border-left: 3px solid #666;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* ダークモード対応 */
+[data-md-color-scheme="slate"] .md-typeset pre > code:not([class*="language-"]) {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* ========================================
+   ナビゲーション改善
+   ======================================== */
+
+/* サイドバーの日本語フォント */
+.md-nav__link {
+  font-size: 0.9rem;
+}
+
+/* アクティブなナビゲーション項目 */
+.md-nav__item--active > .md-nav__link {
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+}
+
+/* ========================================
+   レスポンシブ調整
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+  /* モバイルでコードブロックのフォントサイズを調整 */
+  .md-content pre code {
+    font-size: 0.75em;
+  }
+  
+  /* ASCII Art のスクロールを許可 */
+  .md-content pre {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ========================================
+   印刷時のスタイル
+   ======================================== */
+
+@media print {
+  .md-content pre code {
+    font-size: 9pt;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+}

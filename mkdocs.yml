@@ -1,0 +1,214 @@
+# MkDocs 配置文件
+site_name: Python データ分析入門
+site_description: プログラミング未経験者向けの Python データ分析教材
+site_author: LearnPythonDataAnalyze
+
+# ドキュメントのソースディレクトリ
+docs_dir: docs
+
+# ビルド出力先
+site_dir: site
+
+# リポジトリ情報
+repo_url: https://github.com/FATESAIKOU/LearnPythonDataAnalyze
+repo_name: FATESAIKOU/LearnPythonDataAnalyze
+
+# テーマ設定
+theme:
+  name: material
+  language: ja
+  palette:
+    # ライトモード
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    # ダークモード
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+  features:
+    - navigation.tabs           # 上部タブナビゲーション
+    - navigation.sections       # サイドバーのセクション表示
+    - navigation.expand         # サイドバー自動展開
+    - navigation.top            # トップに戻るボタン
+    - search.highlight          # 検索ハイライト
+    - search.suggest            # 検索サジェスト
+    - content.code.copy         # コードコピーボタン
+    - content.code.annotate     # コード注釈
+  font:
+    text: Noto Sans JP
+    code: Source Code Pro
+
+# 拡張機能
+markdown_extensions:
+  - pymdownx.highlight:         # シンタックスハイライト
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite       # インラインコードハイライト
+  - pymdownx.superfences        # コードブロック拡張
+  - pymdownx.tabbed:            # タブ機能
+      alternate_style: true
+  - tables                      # テーブル
+  - admonition                  # 注意書きブロック
+  - pymdownx.details            # 折りたたみ
+  - attr_list                   # 属性リスト
+  - md_in_html                  # HTML内Markdown
+  - toc:                        # 目次
+      permalink: true
+
+# カスタムCSS
+extra_css:
+  - stylesheets/custom.css
+
+# ナビゲーション構造
+nav:
+  - ホーム: index.md
+  - はじめに: introduction.md
+  - 教材概要: overview.md
+  
+  - CH1 Python基礎:
+    - 概要: CH1-Python基礎/ch-overview.md
+    - はじめに: CH1-Python基礎/introduction.md
+    - Section1 Pythonとの出会い:
+      - 技術説明: CH1-Python基礎/Section1-Pythonとの出会い/技術説明.md
+      - 演習: CH1-Python基礎/Section1-Pythonとの出会い/演習.md
+      - 応用問題: CH1-Python基礎/Section1-Pythonとの出会い/応用問題.md
+    - Section2 変数とデータ型:
+      - 技術説明: CH1-Python基礎/Section2-変数とデータ型/技術説明.md
+      - 演習: CH1-Python基礎/Section2-変数とデータ型/演習.md
+      - 応用問題: CH1-Python基礎/Section2-変数とデータ型/応用問題.md
+    - Section3 基本的な演算:
+      - 技術説明: CH1-Python基礎/Section3-基本的な演算/技術説明.md
+      - 演習: CH1-Python基礎/Section3-基本的な演算/演習.md
+      - 応用問題: CH1-Python基礎/Section3-基本的な演算/応用問題.md
+
+  - CH2 Python制御構文:
+    - 概要: CH2-Python制御構文/ch-overview.md
+    - はじめに: CH2-Python制御構文/introduction.md
+    - Section1 条件分岐if文:
+      - 技術説明: CH2-Python制御構文/Section1-条件分岐if文/技術説明.md
+      - 演習: CH2-Python制御構文/Section1-条件分岐if文/演習.md
+      - 応用問題: CH2-Python制御構文/Section1-条件分岐if文/応用問題.md
+    - Section2 繰り返しfor文:
+      - 技術説明: CH2-Python制御構文/Section2-繰り返しfor文/技術説明.md
+      - 演習: CH2-Python制御構文/Section2-繰り返しfor文/演習.md
+      - 応用問題: CH2-Python制御構文/Section2-繰り返しfor文/応用問題.md
+    - Section3 繰り返しwhile文:
+      - 技術説明: CH2-Python制御構文/Section3-繰り返しwhile文/技術説明.md
+      - 演習: CH2-Python制御構文/Section3-繰り返しwhile文/演習.md
+      - 応用問題: CH2-Python制御構文/Section3-繰り返しwhile文/応用問題.md
+
+  - CH3 Python関数とモジュール:
+    - 概要: CH3-Python関数とモジュール/ch-overview.md
+    - はじめに: CH3-Python関数とモジュール/introduction.md
+    - Section1 関数の基本:
+      - 技術説明: CH3-Python関数とモジュール/Section1-関数の基本/技術説明.md
+      - 演習: CH3-Python関数とモジュール/Section1-関数の基本/演習.md
+      - 応用問題: CH3-Python関数とモジュール/Section1-関数の基本/応用問題.md
+    - Section2 関数の応用:
+      - 技術説明: CH3-Python関数とモジュール/Section2-関数の応用/技術説明.md
+      - 演習: CH3-Python関数とモジュール/Section2-関数の応用/演習.md
+      - 応用問題: CH3-Python関数とモジュール/Section2-関数の応用/応用問題.md
+    - Section3 モジュールとパッケージ:
+      - 技術説明: CH3-Python関数とモジュール/Section3-モジュールとパッケージ/技術説明.md
+      - 演習: CH3-Python関数とモジュール/Section3-モジュールとパッケージ/演習.md
+      - 応用問題: CH3-Python関数とモジュール/Section3-モジュールとパッケージ/応用問題.md
+
+  - CH4 NumPy入門:
+    - 概要: CH4-NumPy入門/ch-overview.md
+    - はじめに: CH4-NumPy入門/introduction.md
+    - Section1 NumPy配列の基本:
+      - 技術説明: CH4-NumPy入門/Section1-NumPy配列の基本/技術説明.md
+      - 演習: CH4-NumPy入門/Section1-NumPy配列の基本/演習.md
+      - 応用問題: CH4-NumPy入門/Section1-NumPy配列の基本/応用問題.md
+    - Section2 配列の操作:
+      - 技術説明: CH4-NumPy入門/Section2-配列の操作/技術説明.md
+      - 演習: CH4-NumPy入門/Section2-配列の操作/演習.md
+      - 応用問題: CH4-NumPy入門/Section2-配列の操作/応用問題.md
+    - Section3 配列の計算:
+      - 技術説明: CH4-NumPy入門/Section3-配列の計算/技術説明.md
+      - 演習: CH4-NumPy入門/Section3-配列の計算/演習.md
+      - 応用問題: CH4-NumPy入門/Section3-配列の計算/応用問題.md
+
+  - CH5 Pandas入門:
+    - 概要: CH5-Pandas入門/ch-overview.md
+    - はじめに: CH5-Pandas入門/introduction.md
+    - Section1 Series:
+      - 技術説明: CH5-Pandas入門/Section1-Series/技術説明.md
+      - 演習: CH5-Pandas入門/Section1-Series/演習.md
+      - 応用問題: CH5-Pandas入門/Section1-Series/応用問題.md
+    - Section2 DataFrame:
+      - 技術説明: CH5-Pandas入門/Section2-DataFrame/技術説明.md
+      - 演習: CH5-Pandas入門/Section2-DataFrame/演習.md
+      - 応用問題: CH5-Pandas入門/Section2-DataFrame/応用問題.md
+    - Section3 データの読み書き:
+      - 技術説明: CH5-Pandas入門/Section3-データの読み書き/技術説明.md
+      - 演習: CH5-Pandas入門/Section3-データの読み書き/演習.md
+      - 応用問題: CH5-Pandas入門/Section3-データの読み書き/応用問題.md
+    - Section4 データの選択:
+      - 技術説明: CH5-Pandas入門/Section4-データの選択/技術説明.md
+      - 演習: CH5-Pandas入門/Section4-データの選択/演習.md
+      - 応用問題: CH5-Pandas入門/Section4-データの選択/応用問題.md
+    - Section5 データのフィルタリング:
+      - 技術説明: CH5-Pandas入門/Section5-データのフィルタリング/技術説明.md
+      - 演習: CH5-Pandas入門/Section5-データのフィルタリング/演習.md
+      - 応用問題: CH5-Pandas入門/Section5-データのフィルタリング/応用問題.md
+
+  - CH6 Pandas応用:
+    - 概要: CH6-Pandas応用/ch-overview.md
+    - はじめに: CH6-Pandas応用/introduction.md
+    - Section1 データのクリーニング:
+      - 技術説明: CH6-Pandas応用/Section1-データのクリーニング/技術説明.md
+      - 演習: CH6-Pandas応用/Section1-データのクリーニング/演習.md
+      - 応用問題: CH6-Pandas応用/Section1-データのクリーニング/応用問題.md
+    - Section2 データの変換と加工:
+      - 技術説明: CH6-Pandas応用/Section2-データの変換と加工/技術説明.md
+      - 演習: CH6-Pandas応用/Section2-データの変換と加工/演習.md
+      - 応用問題: CH6-Pandas応用/Section2-データの変換と加工/応用問題.md
+    - Section3 データの結合:
+      - 技術説明: CH6-Pandas応用/Section3-データの結合/技術説明.md
+      - 演習: CH6-Pandas応用/Section3-データの結合/演習.md
+      - 応用問題: CH6-Pandas応用/Section3-データの結合/応用問題.md
+    - Section4 グループ化と集計:
+      - 技術説明: CH6-Pandas応用/Section4-グループ化と集計/技術説明.md
+      - 演習: CH6-Pandas応用/Section4-グループ化と集計/演習.md
+      - 応用問題: CH6-Pandas応用/Section4-グループ化と集計/応用問題.md
+    - Section5 時系列データの基礎:
+      - 技術説明: CH6-Pandas応用/Section5-時系列データの基礎/技術説明.md
+      - 演習: CH6-Pandas応用/Section5-時系列データの基礎/演習.md
+      - 応用問題: CH6-Pandas応用/Section5-時系列データの基礎/応用問題.md
+
+  - CH7 Matplotlib入門:
+    - 概要: CH7-Matplotlib入門/ch-overview.md
+    - はじめに: CH7-Matplotlib入門/introduction.md
+    - Section1 Matplotlibの基本:
+      - 技術説明: CH7-Matplotlib入門/Section1-Matplotlibの基本/技術説明.md
+      - 演習: CH7-Matplotlib入門/Section1-Matplotlibの基本/演習.md
+      - 応用問題: CH7-Matplotlib入門/Section1-Matplotlibの基本/応用問題.md
+    - Section2 折れ線グラフと散布図:
+      - 技術説明: CH7-Matplotlib入門/Section2-折れ線グラフと散布図/技術説明.md
+      - 演習: CH7-Matplotlib入門/Section2-折れ線グラフと散布図/演習.md
+      - 応用問題: CH7-Matplotlib入門/Section2-折れ線グラフと散布図/応用問題.md
+    - Section3 棒グラフとヒストグラム:
+      - 技術説明: CH7-Matplotlib入門/Section3-棒グラフとヒストグラム/技術説明.md
+      - 演習: CH7-Matplotlib入門/Section3-棒グラフとヒストグラム/演習.md
+      - 応用問題: CH7-Matplotlib入門/Section3-棒グラフとヒストグラム/応用問題.md
+    - Section4 グラフの装飾:
+      - 技術説明: CH7-Matplotlib入門/Section4-グラフの装飾/技術説明.md
+      - 演習: CH7-Matplotlib入門/Section4-グラフの装飾/演習.md
+      - 応用問題: CH7-Matplotlib入門/Section4-グラフの装飾/応用問題.md
+    - Section5 複数グラフとエクスポート:
+      - 技術説明: CH7-Matplotlib入門/Section5-複数グラフとエクスポート/技術説明.md
+      - 演習: CH7-Matplotlib入門/Section5-複数グラフとエクスポート/演習.md
+      - 応用問題: CH7-Matplotlib入門/Section5-複数グラフとエクスポート/応用問題.md
+
+  - CH8 総合演習:
+    - 概要: CH8-総合演習/ch-overview.md
+    - はじめに: CH8-総合演習/introduction.md
