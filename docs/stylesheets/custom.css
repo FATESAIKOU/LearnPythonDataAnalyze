@@ -4,34 +4,78 @@
  */
 
 /* ========================================
-   等幅フォント設定（ASCII Art 対応）
+   Google Fonts からの日本語等幅フォント読み込み
+   BIZ UDGothic: 日本語プログラミング向け等幅フォント
    ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=Noto+Sans+Mono:wght@400;700&display=swap');
 
-/* 通常の段落内でも等幅フォントを使用するブロック */
-/* ASCII Art を含む可能性のあるコードブロック外のテキスト */
-.md-content pre,
-.md-content code {
+/* ========================================
+   本文用フォント設定
+   ======================================== */
+body,
+.md-typeset {
   font-family: 
-    'Source Code Pro',
-    'Noto Sans Mono CJK JP',  /* 日本語等幅 */
-    'MS Gothic',               /* Windows 日本語等幅 */
-    'Osaka-Mono',              /* macOS 日本語等幅 */
-    monospace !important;
-  font-size: 0.85em;
-  line-height: 1.5;
+    'Noto Sans JP',
+    'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans',
+    'Meiryo',
+    sans-serif;
 }
 
-/* コードブロック内の等幅表示を確実に */
-.md-content pre code {
+/* ========================================
+   等幅フォント設定（ASCII Art 対応）
+   BIZ UDGothic は日本語全角が半角2文字分の幅を持つ
+   ======================================== */
+
+/* コードブロック全体に等幅フォントを適用 */
+.md-content pre,
+.md-content code,
+.md-typeset pre,
+.md-typeset code,
+.highlight pre,
+.highlight code,
+pre, code {
   font-family: 
+    'BIZ UDGothic',            /* 日本語等幅（全角=半角×2） */
+    'Noto Sans Mono',
+    'SF Mono',
+    'Monaco',
+    'Consolas',
     'Source Code Pro',
     'Noto Sans Mono CJK JP',
     'MS Gothic',
     'Osaka-Mono',
+    'Courier New',
     monospace !important;
-  white-space: pre;           /* 空白を保持 */
-  word-break: normal;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  -webkit-font-feature-settings: "liga" 0;
+  font-feature-settings: "liga" 0;
+}
+
+/* コードブロック内の等幅表示を確実に */
+.md-content pre code,
+.md-typeset pre > code,
+.highlight pre code,
+pre > code {
+  font-family: 
+    'BIZ UDGothic',
+    'Noto Sans Mono',
+    'SF Mono',
+    'Monaco',
+    'Consolas',
+    'Source Code Pro',
+    'Noto Sans Mono CJK JP',
+    'MS Gothic',
+    'Osaka-Mono',
+    'Courier New',
+    monospace !important;
+  white-space: pre !important;
+  word-break: normal !important;
   overflow-x: auto;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  letter-spacing: 0 !important;
 }
 
 /* ========================================

@@ -41,9 +41,7 @@ theme:
     - search.suggest            # 検索サジェスト
     - content.code.copy         # コードコピーボタン
     - content.code.annotate     # コード注釈
-  font:
-    text: Noto Sans JP
-    code: Source Code Pro
+  font: false                   # フォントをカスタムCSSで制御するため無効化
 
 # 拡張機能
 markdown_extensions:
