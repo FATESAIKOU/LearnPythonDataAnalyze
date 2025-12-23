@@ -24,7 +24,7 @@ body,
 
 /* ========================================
    等幅フォント設定（ASCII Art 対応）
-   BIZ UDGothic は日本語全角が半角2文字分の幅を持つ
+   日本語全角が半角2文字分の幅を持つフォントを使用
    ======================================== */
 
 /* コードブロック全体に等幅フォントを適用 */
@@ -36,18 +36,18 @@ body,
 .highlight code,
 pre, code {
   font-family: 
-    'BIZ UDGothic',            /* 日本語等幅（全角=半角×2） */
+    'Maple Mono NF CN',        /* ローカルインストール時に使用 */
+    'BIZ UDGothic',            /* Google Fonts フォールバック */
     'Noto Sans Mono',
     'SF Mono',
     'Monaco',
     'Consolas',
     'Source Code Pro',
-    'Noto Sans Mono CJK JP',
     'MS Gothic',
     'Osaka-Mono',
     'Courier New',
     monospace !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   line-height: 1.6 !important;
   -webkit-font-feature-settings: "liga" 0;
   font-feature-settings: "liga" 0;
@@ -59,17 +59,18 @@ pre, code {
 .highlight pre code,
 pre > code {
   font-family: 
+    'Maple Mono NF CN',
     'BIZ UDGothic',
     'Noto Sans Mono',
     'SF Mono',
     'Monaco',
     'Consolas',
     'Source Code Pro',
-    'Noto Sans Mono CJK JP',
     'MS Gothic',
     'Osaka-Mono',
     'Courier New',
     monospace !important;
+  font-size: 16px !important;
   white-space: pre !important;
   word-break: normal !important;
   overflow-x: auto;
