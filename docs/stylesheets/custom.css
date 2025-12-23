@@ -4,10 +4,30 @@
  */
 
 /* ========================================
-   Google Fonts からの日本語等幅フォント読み込み
-   BIZ UDGothic: 日本語プログラミング向け等幅フォント
+   日本語等幅フォント読み込み
+   Source Han Mono: Adobe/Google共同開発の等幅フォント
+   全角文字 = 半角文字 × 2 を保証
    ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=BIZ+UDGothic&family=Noto+Sans+Mono:wght@400;700&display=swap');
+
+/* Source Han Mono JP (思源等幅) - jsDelivr CDN */
+@font-face {
+  font-family: 'Source Han Mono JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/source-han-mono@1.002/Regular/OTF/Japanese/SourceHanMono-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Source Han Mono JP';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/npm/source-han-mono@1.002/Bold/OTF/Japanese/SourceHanMono-Bold.otf') format('opentype');
+}
+
+/* Google Fonts フォールバック */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 /* ========================================
    本文用フォント設定
@@ -36,16 +56,10 @@ body,
 .highlight code,
 pre, code {
   font-family: 
-    'Maple Mono NF CN',        /* ローカルインストール時に使用 */
-    'BIZ UDGothic',            /* Google Fonts フォールバック */
-    'Noto Sans Mono',
-    'SF Mono',
-    'Monaco',
-    'Consolas',
-    'Source Code Pro',
-    'MS Gothic',
-    'Osaka-Mono',
-    'Courier New',
+    'Source Han Mono JP',      /* CDN: 全角=半角×2 を保証 */
+    'Maple Mono NF CN',        /* ローカルインストール時 */
+    'MS Gothic',               /* Windows フォールバック */
+    'Osaka-Mono',              /* macOS フォールバック */
     monospace !important;
   font-size: 16px !important;
   line-height: 1.6 !important;
@@ -59,16 +73,10 @@ pre, code {
 .highlight pre code,
 pre > code {
   font-family: 
+    'Source Han Mono JP',
     'Maple Mono NF CN',
-    'BIZ UDGothic',
-    'Noto Sans Mono',
-    'SF Mono',
-    'Monaco',
-    'Consolas',
-    'Source Code Pro',
     'MS Gothic',
     'Osaka-Mono',
-    'Courier New',
     monospace !important;
   font-size: 16px !important;
   white-space: pre !important;
