@@ -19,6 +19,7 @@ RUN pip install --no-cache-dir \
     numpy \
     pandas \
     matplotlib \
+    seaborn \
     openpyxl \
     japanize-matplotlib
 
