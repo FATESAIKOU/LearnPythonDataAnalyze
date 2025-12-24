@@ -79,14 +79,20 @@ pre, code {
 .md-content pre code,
 .md-typeset pre > code,
 .highlight pre code,
-pre > code {
+pre > code,
+/* readthedocs テーマ用セレクター */
+.rst-content pre,
+.rst-content code,
+.rst-content .highlight pre,
+.rst-content .literal-block,
+.wy-body-for-nav pre,
+div[class^="highlight"] pre {
   font-family: 
-    'JetBrains Mono',
-    'Consolas',
-    'Menlo',
-    'MS Gothic',
-    'Osaka-Mono',
-    'Liberation Mono',
+    'Sarasa Mono J',           /* CJK+Box Drawing 完全対応 */
+    'Source Han Mono',         /* CJK フォールバック */
+    'Noto Sans Mono CJK JP',   /* システム CJK 等幅 */
+    'MS Gothic',               /* Windows CJK 等幅 */
+    'Osaka-Mono',              /* macOS CJK 等幅 */
     monospace !important;
   font-size: 14px !important;
   white-space: pre !important;
