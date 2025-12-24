@@ -4,29 +4,23 @@
  */
 
 /* ========================================
-   日本語等幅フォント読み込み
-   Source Han Mono: Adobe/Google共同開発の等幅フォント
-   全角文字 = 半角文字 × 2 を保証
+   等幅フォント読み込み（CJK対応版）
+   戦略：
+   1. Sarasa Mono J（更紗ゴシック等幅日文）をローカル配信
+   2. Box Drawing文字とCJK文字の完全対応
+   3. 全角・半角の幅を正確に処理
    ======================================== */
 
-/* Source Han Mono JP (思源等幅) - jsDelivr CDN */
+/* Sarasa Mono J - ローカルホスティング */
 @font-face {
-  font-family: 'Source Han Mono JP';
+  font-family: 'Sarasa Mono J';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://cdn.jsdelivr.net/npm/source-han-mono@1.002/Regular/OTF/Japanese/SourceHanMono-Regular.otf') format('opentype');
+  src: url('fonts/SarasaMonoJ-Regular.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Source Han Mono JP';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('https://cdn.jsdelivr.net/npm/source-han-mono@1.002/Bold/OTF/Japanese/SourceHanMono-Bold.otf') format('opentype');
-}
-
-/* Google Fonts フォールバック */
+/* Google Fonts フォールバック（本文用） */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 /* ========================================
@@ -43,8 +37,18 @@ body,
 }
 
 /* ========================================
-   等幅フォント設定（ASCII Art 対応）
-   日本語全角が半角2文字分の幅を持つフォントを使用
+   等幅フォント設定（ASCII Art 対応・CJK完全対応版）
+   
+   フォントスタック戦略：
+   1. Sarasa Mono J: CJK+Box Drawing完全対応、全角・半角幅を正確処理
+   2. Source Han Mono: Google等のCJK等幅フォント
+   3. Noto Sans Mono CJK JP: システム標準CJK等幅
+   4. monospace: 最終フォールバック
+   
+   この組み合わせで：
+   - 欧文・記号・Box Drawingと日本語の混在を完璧に対応
+   - 全角文字は必ず2倍幅で表示
+   - すべての環境でASCII Artの対齐を保証
    ======================================== */
 
 /* コードブロック全体に等幅フォントを適用 */
@@ -56,35 +60,51 @@ body,
 .highlight code,
 pre, code {
   font-family: 
-    'Source Han Mono JP',      /* CDN: 全角=半角×2 を保証 */
-    'Maple Mono NF CN',        /* ローカルインストール時 */
-    'MS Gothic',               /* Windows フォールバック */
-    'Osaka-Mono',              /* macOS フォールバック */
+    'Sarasa Mono J',           /* ローカル: CJK+Box Drawing完全対応 */
+    'Source Han Mono',         /* CJKフォールバック */
+    'Noto Sans Mono CJK JP',   /* システムCJK等幅 */
+    'MS Gothic',               /* Windows CJK等幅 */
+    'Osaka-Mono',              /* macOS CJK等幅 */
     monospace !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   line-height: 1.6 !important;
   -webkit-font-feature-settings: "liga" 0;
   font-feature-settings: "liga" 0;
+  /* Box Drawing 文字の最適化 */
+  font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
 }
 
 /* コードブロック内の等幅表示を確実に */
 .md-content pre code,
 .md-typeset pre > code,
 .highlight pre code,
-pre > code {
+pre > code,
+/* readthedocs テーマ用セレクター */
+.rst-content pre,
+.rst-content code,
+.rst-content .highlight pre,
+.rst-content .literal-block,
+.wy-body-for-nav pre,
+div[class^="highlight"] pre {
   font-family: 
-    'Source Han Mono JP',
-    'Maple Mono NF CN',
-    'MS Gothic',
-    'Osaka-Mono',
+    'Sarasa Mono J',           /* CJK+Box Drawing 完全対応 */
+    'Source Han Mono',         /* CJK フォールバック */
+    'Noto Sans Mono CJK JP',   /* システム CJK 等幅 */
+    'MS Gothic',               /* Windows CJK 等幅 */
+    'Osaka-Mono',              /* macOS CJK 等幅 */
     monospace !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   white-space: pre !important;
   word-break: normal !important;
   overflow-x: auto;
   tab-size: 4;
   -moz-tab-size: 4;
   letter-spacing: 0 !important;
+  /* ASCII Art 最適化 */
+  font-variant-ligatures: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ========================================
