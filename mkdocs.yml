@@ -11,37 +11,12 @@ site_dir: site
 
 # リポジトリ情報
 repo_url: https://github.com/FATESAIKOU/LearnPythonDataAnalyze
-repo_name: FATESAIKOU/LearnPythonDataAnalyze
+repo_name: GitHub
 
 # テーマ設定
 theme:
-  name: material
-  language: ja
-  palette:
-    # ライトモード
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: ダークモードに切り替え
-    # ダークモード
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: ライトモードに切り替え
-  features:
-    - navigation.tabs           # 上部タブナビゲーション
-    - navigation.sections       # サイドバーのセクション表示
-    - navigation.expand         # サイドバー自動展開
-    - navigation.top            # トップに戻るボタン
-    - search.highlight          # 検索ハイライト
-    - search.suggest            # 検索サジェスト
-    - content.code.copy         # コードコピーボタン
-    - content.code.annotate     # コード注釈
-  font: false                   # フォントをカスタムCSSで制御するため無効化
+  name: readthedocs
+  locale: ja
 
 # 拡張機能
 markdown_extensions:
